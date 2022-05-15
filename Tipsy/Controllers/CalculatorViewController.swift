@@ -17,23 +17,17 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var splitNumberLabel: UILabel!
     
     @IBAction func tipChanged(_ sender: UIButton) {
+        
+        // logic to clear highlight of unselected buttons
+        zeroPctButton.isSelected = false
+        tenPctButton.isSelected = false
+        twentyPctButton.isSelected = false
+
         // logic to set highlight of selected button
         let selectedButton = sender
         selectedButton.isSelected = true
         
-        // logic to clear highlight of unselected buttons
-        if zeroPctButton != selectedButton {
-            zeroPctButton.isSelected = false
-        }
-        if tenPctButton != selectedButton {
-            tenPctButton.isSelected = false
-        }
-        if twentyPctButton != selectedButton {
-            twentyPctButton.isSelected = false
-        }
-        
-        
-        
+
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
