@@ -18,6 +18,14 @@ class CalculatorViewController: UIViewController {
     
     var tipAmount: Float = 0.0
     var splitNumber: Int = 1
+    var billTotal: Float = 0.0
+    
+    
+
+    @IBAction func billTotalChanged(_ sender: UITextField) {
+        let enteredBillTotal = sender.text ?? "0.0"
+        billTotal = Float(enteredBillTotal) ?? 0.0
+    }
     
     
     @IBAction func tipChanged(_ sender: UIButton) {
