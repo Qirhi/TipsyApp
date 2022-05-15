@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var splitNumberLabel: UILabel!
     
     var tipAmount: Float = 0.0
+    var splitNumber: Int = 1
     
     
     @IBAction func tipChanged(_ sender: UIButton) {
@@ -29,23 +30,24 @@ class CalculatorViewController: UIViewController {
         // logic to set highlight of selected button
         let selectedButton = sender
         selectedButton.isSelected = true
-        print(sender)
         
         // logic to assign / print tipAmount value
         if tenPctButton == selectedButton {
             tipAmount = 0.10
-            print(tipAmount)
         } else if twentyPctButton == selectedButton {
             tipAmount = 0.20
-            print(tipAmount)
         } else {
             tipAmount = 0.0
-            print(tipAmount)
         }
         
     }
     
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
+        
+        let selectedStepperValue = sender.value
+        splitNumberLabel.text = String(format: "%.0f", selectedStepperValue)
+        splitNumber = Int(selectedStepperValue)
+        
     }
     
     @IBAction func calculatorPressed(_ sender: UIButton) {
