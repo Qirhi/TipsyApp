@@ -19,6 +19,7 @@ class CalculatorViewController: UIViewController {
     var tipAmount: Float = 0.0
     var splitNumber: Int = 1
     var billTotal: Float = 0.0
+    var totalPerPerson: Float = 0.0
     
     
 
@@ -29,6 +30,9 @@ class CalculatorViewController: UIViewController {
     
     
     @IBAction func tipChanged(_ sender: UIButton) {
+        
+        // dismiss keyboard of billTotal text field
+        billTextField.endEditing(true)
         
         // logic to clear highlight of unselected buttons
         zeroPctButton.isSelected = false
@@ -59,6 +63,18 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func calculatorPressed(_ sender: UIButton) {
+        print(billTotal, "bill total")
+        print(tipAmount, "tip amount")
+        print(splitNumber, "split number")
+
+        let billPlusTip = billTotal + (billTotal*tipAmount)
+        
+        let amountAfterSplit = billPlusTip / Float(splitNumber)
+        
+//        print(amountAfterSplit, "amount per person")
+        totalPerPerson = amountAfterSplit
+
+        
     }
 
 
