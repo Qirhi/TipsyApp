@@ -9,6 +9,12 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+    
+    var billTotal: Float?
+    var tipAmount: Float?
+    var splitNumber: Int?
+    
+
 
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
@@ -17,23 +23,21 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.totalLabel.text = String(format: "%.2f", self.billTotal!)
+        let stringTipAmount = String(format: "%.0f", self.tipAmount!*100)
+        let stringSplitNumber = String(self.splitNumber!)
+        
+        self.settingsLabel.text = "Split between \(stringSplitNumber) people, with \(stringTipAmount)% tip."
 
-        // Do any additional setup after loading the view.
     }
     
     
     @IBAction func recalculatePressed(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
+ 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

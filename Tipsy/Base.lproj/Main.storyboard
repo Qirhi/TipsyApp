@@ -184,7 +184,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calculatorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VTW-Fs-DoU"/>
-                                    <segue destination="Dnf-m2-FPm" kind="presentation" id="Tah-9f-yvo"/>
+                                    <segue destination="Dnf-m2-FPm" kind="presentation" identifier="goToResult" id="Tah-9f-yvo"/>
                                 </connections>
                             </button>
                         </subviews>

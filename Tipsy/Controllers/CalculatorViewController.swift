@@ -2,9 +2,7 @@
 //  ViewController.swift
 //  Tipsy
 //
-//  Created by Angela Yu on 09/09/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
-//
+
 
 import UIKit
 
@@ -16,11 +14,10 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var splitNumberLabel: UILabel!
     
-    var tipAmount: Float = 0.0
-    var splitNumber: Int = 1
+    var tipAmount: Float = 1.0
+    var splitNumber: Int = 2
     var billTotal: Float = 0.0
     var totalPerPerson: Float = 0.0
-    
     
 
     @IBAction func billTotalChanged(_ sender: UITextField) {
@@ -63,9 +60,9 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func calculatorPressed(_ sender: UIButton) {
-        print(billTotal, "bill total")
-        print(tipAmount, "tip amount")
-        print(splitNumber, "split number")
+//        print(billTotal, "bill total")
+//        print(tipAmount, "tip amount")
+//        print(splitNumber, "split number")
 
         let billPlusTip = billTotal + (billTotal*tipAmount)
         
@@ -75,6 +72,15 @@ class CalculatorViewController: UIViewController {
         totalPerPerson = amountAfterSplit
 
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultsViewController // this will be the VC that gets initialized when segue is triggered
+            destinationVC.billTotal = self.billTotal
+            destinationVC.tipAmount = self.tipAmount
+            destinationVC.splitNumber = self.splitNumber
+        }
     }
 
 
